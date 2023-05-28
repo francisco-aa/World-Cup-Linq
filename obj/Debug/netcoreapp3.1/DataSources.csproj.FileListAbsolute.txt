@@ -1,0 +1,5 @@
+/Users/franciscoantonio/RiderProjects/worldCupWinners_Linq/obj/Debug/netcoreapp3.1/DataSources.csproj.AssemblyReference.cache
+/Users/franciscoantonio/RiderProjects/worldCupWinners_Linq/obj/Debug/netcoreapp3.1/DataSources.GeneratedMSBuildEditorConfig.editorconfig
+/Users/franciscoantonio/RiderProjects/worldCupWinners_Linq/obj/Debug/netcoreapp3.1/DataSources.AssemblyInfoInputs.cache
+/Users/franciscoantonio/RiderProjects/worldCupWinners_Linq/obj/Debug/netcoreapp3.1/DataSources.AssemblyInfo.cs
+/Users/franciscoantonio/RiderProjects/worldCupWinners_Linq/obj/Debug/netcoreapp3.1/DataSources.csproj.CoreCompileInputs.cache
