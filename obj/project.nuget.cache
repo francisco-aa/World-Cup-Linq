@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xqmyTF/1qKbP/o4sBpNu20Lb0Mr0rp3FqQSV+vwR5MG/xoCt+KUgSn5ZEAFYn2N3RlLdCeQjBrpn7js4W1Oa5g==",
+  "success": true,
+  "projectFilePath": "/Users/franciscoantonio/RiderProjects/worldCupWinners_Linq/DataSources.csproj",
+  "expectedPackageFiles": [
+    "/Users/franciscoantonio/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "/Users/franciscoantonio/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
