@@ -32,7 +32,6 @@ public class GoldenBallController : ControllerBase
     {
         var goldenBalls = 
             from goldenBall in this.goldenBalls
-            orderby goldenBall.Year
             select goldenBall;
         
         switch (sortedBy)
@@ -69,7 +68,7 @@ public class GoldenBallController : ControllerBase
      */
     [HttpGet("search")]
     public ActionResult<List<GoldenBall>> SearchWorldCup(
-        [FromQuery] string? year,
+        [FromQuery] int? year,
         [FromQuery] string? winner,
         [FromQuery] string? second,
         [FromQuery] string? third)
@@ -77,11 +76,69 @@ public class GoldenBallController : ControllerBase
 
         var goldenBalls =
             from goldenBall in this.goldenBalls
-            where year.IsNullOrEmpty() ? true : goldenBall.Year.Contains(year, StringComparison.InvariantCultureIgnoreCase)
+            where year.HasValue ? goldenBall.Year == year : true
             where winner.IsNullOrEmpty() ? true : goldenBall.Winner.Contains(winner, StringComparison.InvariantCultureIgnoreCase)
             where second.IsNullOrEmpty() ? true : goldenBall.Second.Contains(second, StringComparison.InvariantCultureIgnoreCase)
             where third.IsNullOrEmpty() ? true : goldenBall.Third.Contains(third, StringComparison.InvariantCultureIgnoreCase)
             select goldenBall;
+
+        return Ok(goldenBalls.ToList());
+    }
+    
+    [HttpGet("greatherThan/{condition}")]
+    public ActionResult<List<WorldCup>> GetGreatherThan(string condition)
+    {
+        if (!condition.Contains('>'))
+        {
+            return BadRequest("ERROR: Invalid condition");
+        }
+        var property = condition.Split('>')[0];
+        var value = int.Parse(condition.Split('>')[1]);
+
+        var goldenBalls = 
+            from goldenBall in this.goldenBalls
+            select goldenBall;
+
+        switch (property)
+        {
+            case "year":
+                goldenBalls =
+                    from worldCup in this.goldenBalls
+                    where worldCup.Year > value
+                    select worldCup;
+                break;
+            default:
+                return BadRequest("ERROR: Invalid property");
+        }
+
+        return Ok(goldenBalls.ToList());
+    }
+    
+    [HttpGet("smallerThan/{condition}")]
+    public ActionResult<List<WorldCup>> GetSmallerThan(string condition)
+    {
+        if (!condition.Contains('<'))
+        {
+            return BadRequest("ERROR: Invalid condition");
+        }
+        var property = condition.Split('<')[0];
+        var value = int.Parse(condition.Split('<')[1]);
+
+        var goldenBalls = 
+            from goldenBall in this.goldenBalls
+            select goldenBall;
+
+        switch (property)
+        {
+            case "year":
+                goldenBalls =
+                    from goldenBall in this.goldenBalls
+                    where goldenBall.Year < value
+                    select goldenBall;
+                break;
+            default:
+                return BadRequest("ERROR: Invalid property");
+        }
 
         return Ok(goldenBalls.ToList());
     }
