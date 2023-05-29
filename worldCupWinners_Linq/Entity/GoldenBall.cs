@@ -6,7 +6,7 @@ namespace worldCupWinners_Linq.Entity;
 public class GoldenBall
 {
     [JsonProperty("year")]
-    public string Year { get; set; }
+    public int Year { get; set; }
 
     [JsonProperty("winner")]
     public string Winner { get; set; }
@@ -17,7 +17,7 @@ public class GoldenBall
     [JsonProperty("third")]
     public string Third { get; set; }
 
-    public GoldenBall(string year, string goldenBallWinner, string silverBall, string bronzeBall)
+    public GoldenBall(int year, string goldenBallWinner, string silverBall, string bronzeBall)
     {
         Year = year;
         Winner = goldenBallWinner;

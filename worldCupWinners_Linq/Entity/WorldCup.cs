@@ -5,7 +5,7 @@ namespace worldCupWinners_Linq.Entity;
 public class WorldCup
 {
     [JsonPropertyName("year")]
-    public string Year { get; set; }
+    public int Year { get; set; }
 
     [JsonPropertyName("champion")]
     public string Champion { get; set; }
@@ -20,15 +20,15 @@ public class WorldCup
     public string Host { get; set; }
 
     [JsonPropertyName("nbTeams")]
-    public string NbTeams { get; set; }
+    public int NbTeams { get; set; }
 
     [JsonPropertyName("nbMatches")]
-    public string NbMatches { get; set; }
+    public int NbMatches { get; set; }
 
     [JsonPropertyName("nbGoals")]
-    public string NbGoals { get; set; }
+    public int NbGoals { get; set; }
     
-    public WorldCup(string year, string champion, string second, string third, string host, string nbTeams, string nbMatches, string nbGoals)
+    public WorldCup(int year, string champion, string second, string third, string host, int nbTeams, int nbMatches, int nbGoals)
     {
         Year = year;
         Champion = champion;
