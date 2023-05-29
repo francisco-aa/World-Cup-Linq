@@ -37,7 +37,10 @@ public class WorldCupController : ControllerBase
     [HttpGet("getAllSortedBy")]
     public ActionResult<List<WorldCup>> GetAllSortedBy([FromQuery] string? sortedBy)
     {
-        IOrderedEnumerable<WorldCup> worldCups = null;
+        var worldCups =
+            from worldCup in worldCupList()
+            select worldCup;
+
         switch (sortedBy)
         {
             case "year":
@@ -78,7 +81,7 @@ public class WorldCupController : ControllerBase
                 break;
             case "nbGoals":
                 worldCups = from worldCup in worldCupList()
-                    orderby worldCup.NbGoals 
+                    orderby worldCup.NbGoals
                     select worldCup;
                 break;
         }
@@ -90,29 +93,36 @@ public class WorldCupController : ControllerBase
      * search world cup
      */
     [HttpGet("search")]
-    public ActionResult<List<WorldCup>> SearchWorldCup([FromQuery] string? year, [FromQuery] string? champion,
-        [FromQuery] string? second, [FromQuery] string? third, [FromQuery] string? host, [FromQuery] string? nbTeams,
-        [FromQuery] string? nbMatches, [FromQuery] string? nbGoals)
+    public ActionResult<List<WorldCup>> SearchWorldCup(
+        [FromQuery] string? year,
+        [FromQuery] string? champion,
+        [FromQuery] string? second,
+        [FromQuery] string? third,
+        [FromQuery] string? host,
+        [FromQuery] int? nbTeams,
+        [FromQuery] int? nbMatches,
+        [FromQuery] int? nbGoals)
     {
-        var yearSearch = year.IsNullOrEmpty() ? "" : year;
-        var championSearch = champion.IsNullOrEmpty() ? "" : champion;
-        var secondSearch = second.IsNullOrEmpty() ? "" : second;
-        var thirdSearch = third.IsNullOrEmpty() ? "" : third;
-        var hostSearch = host.IsNullOrEmpty() ? "" : host;
-        var nbTeamsSearch = nbTeams.IsNullOrEmpty() ? "" : nbTeams;
-        var nbMatchesSearch = nbMatches.IsNullOrEmpty() ? "" : nbMatches;
-        var nbGoalsSearch = nbGoals.IsNullOrEmpty() ? "" : nbGoals;
-
         var worldCups =
             from worldcup in worldCupList()
-            where worldcup.Year.Contains(yearSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.Champion.Contains(championSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.Second.Contains(secondSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.Third.Contains(thirdSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.Host.Contains(hostSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.NbTeams.Contains(nbTeamsSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.NbMatches.Contains(nbMatchesSearch, StringComparison.InvariantCultureIgnoreCase)
-            where worldcup.NbGoals.Contains(nbGoalsSearch, StringComparison.InvariantCultureIgnoreCase)
+            where year.IsNullOrEmpty()
+                ? true
+                : worldcup.Year.Contains(year, StringComparison.InvariantCultureIgnoreCase)
+            where champion.IsNullOrEmpty()
+                ? true
+                : worldcup.Champion.Contains(champion, StringComparison.InvariantCultureIgnoreCase)
+            where second.IsNullOrEmpty()
+                ? true
+                : worldcup.Second.Contains(second, StringComparison.InvariantCultureIgnoreCase)
+            where third.IsNullOrEmpty()
+                ? true
+                : worldcup.Year.Contains(third, StringComparison.InvariantCultureIgnoreCase)
+            where host.IsNullOrEmpty()
+                ? true
+                : worldcup.Host.Contains(host, StringComparison.InvariantCultureIgnoreCase)
+            where nbTeams.HasValue ? worldcup.NbTeams == nbTeams : true
+            where nbMatches.HasValue ? worldcup.NbMatches == nbMatches : true
+            where nbGoals.HasValue ? worldcup.NbGoals == nbGoals : true
             select worldcup;
 
         return Ok(worldCups.ToList());
