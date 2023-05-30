@@ -4,13 +4,14 @@
 
 # Table of Contents
 1. [Introduction](#introduction)
-2. [Controllers: World Cup](#controllers-world-cup)
+2. [Getting Started](#Getting Started)
+3. [Controllers: World Cup](#controllers-world-cup)
    - [GET /api/worldCup/getAll](#get-apiworldcupgetall)
    - [GET /api/worldCup/getAllSortedBy?sortedBy={property}](#get-apiworldcupgetallsortedbysortedbyproperty)
    - [GET /api/worldCup/search?{property}={value}](#get-apiworldcupsearchpropertyvalue)
    - [GET /api/worldCup/greatherThan?{property}>{value}](#get-apiworldcupgreatheranpropertyvalue)
    - [GET /api/worldCup/smallerThan?{property}<{value}](#get-apiworldcupsmallerthanpropertyvalue)
-3. [Controllers: Golden Ball](#controllers-golden-ball)
+4. [Controllers: Golden Ball](#controllers-golden-ball)
    - [GET /api/goldenBall/getAll](#get-apigoldenballgetall)
    - [GET /api/goldenBall/getAllSortedBy?sortedBy={property}](#get-apigoldenballgetallsortedbysortedbyproperty)
    - [GET /api/goldenBall/search?{property}={value}](#get-apigoldenballsearchpropertyvalue)
@@ -50,6 +51,47 @@ This project contains two data sources:
   ...
 ]
 ```
+
+# Getting Started
+
+To use this project, follow the steps below:
+
+### Prerequisites
+
+- [.NET Core SDK](https://dotnet.microsoft.com/download) (version 2.1 or higher)
+- [Git](https://git-scm.com/downloads) (optional)
+
+### Installation
+
+1. Clone the repository using Git or download the ZIP file directly from the GitHub repository: [World-Cup-Winners-Linq](https://github.com/fscript98/World-Cup-Winners-Linq).
+
+   ```bash
+   git clone https://github.com/fscript98/World-Cup-Winners-Linq.git
+   ```
+
+2. Navigate to the project directory.
+
+   ```bash
+   cd worldCup_Linq
+   ```
+
+### Running the Application
+
+1. Build the application using the .NET Core CLI.
+
+   ```bash
+   dotnet build
+   ```
+
+2. Run the application.
+
+   ```bash
+   dotnet run
+   ```
+
+   The application will start running on `https://localhost:7190`.
+   You can also access the swagger documentation on `https://localhost:7190/swagger`
+
 
 ## Controllers: World Cup
 ### GET /api/worldCup/getAll
