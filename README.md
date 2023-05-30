@@ -1,4 +1,4 @@
-# World Cup API Linq
+# World Cup .Net Core API
 ![alt text](https://media.giphy.com/media/kgsqn9gCVAQ3YM3C2f/giphy.gif)
 
 
