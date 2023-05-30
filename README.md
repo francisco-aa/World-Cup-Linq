@@ -1,6 +1,24 @@
 # World Cup API Linq
 ![alt text](https://media.giphy.com/media/kgsqn9gCVAQ3YM3C2f/giphy.gif)
 
+
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Controllers: World Cup](#controllers-world-cup)
+   - [GET /api/worldCup/getAll](#get-apiworldcupgetall)
+   - [GET /api/worldCup/getAllSortedBy?sortedBy={property}](#get-apiworldcupgetallsortedbysortedbyproperty)
+   - [GET /api/worldCup/search?{property}={value}](#get-apiworldcupsearchpropertyvalue)
+   - [GET /api/worldCup/greatherThan?{property}>{value}](#get-apiworldcupgreatheranpropertyvalue)
+   - [GET /api/worldCup/smallerThan?{property}<{value}](#get-apiworldcupsmallerthanpropertyvalue)
+3. [Controllers: Golden Ball](#controllers-golden-ball)
+   - [GET /api/goldenBall/getAll](#get-apigoldenballgetall)
+   - [GET /api/goldenBall/getAllSortedBy?sortedBy={property}](#get-apigoldenballgetallsortedbysortedbyproperty)
+   - [GET /api/goldenBall/search?{property}={value}](#get-apigoldenballsearchpropertyvalue)
+   - [GET /api/goldenBall/greatherThan?{property}>{value}](#get-apigoldenballgreatheranpropertyvalue)
+   - [GET /api/goldenBall/smallerThan?{property}<{value}](#get-apigoldenballsmallerthanpropertyvalue)
+
+
+# Introduction
 This API allows to get informations about all world cups.
 
 This project contains two data sources:
@@ -32,7 +50,6 @@ This project contains two data sources:
   ...
 ]
 ```
-
 
 ## Controllers: World Cup
 ### GET /api/worldCup/getAll
