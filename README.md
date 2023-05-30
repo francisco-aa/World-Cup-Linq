@@ -4,7 +4,7 @@
 
 # Table of Contents
 1. [Introduction](#introduction)
-2. [Getting Started](#Getting Started)
+2. [Getting Started](#getting-started)
 3. [Controllers: World Cup](#controllers-world-cup)
    - [GET /api/worldCup/getAll](#get-apiworldcupgetall)
    - [GET /api/worldCup/getAllSortedBy?sortedBy={property}](#get-apiworldcupgetallsortedbysortedbyproperty)
