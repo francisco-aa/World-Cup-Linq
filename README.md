@@ -1,4 +1,4 @@
-# World Cup .Net Core API
+# World Cup ASP.Net Core Web API
 ![alt text](https://media.giphy.com/media/kgsqn9gCVAQ3YM3C2f/giphy.gif)
 
 
